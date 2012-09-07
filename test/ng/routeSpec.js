@@ -102,9 +102,9 @@ describe('$route', function() {
       $routeProvider.when('/route/:param', {template:'foo.html'}, {param:"int"});
     });
     inject(function($route, $routeParams, $location, $rootScope) {
-      $location.path('/some/5ab');
+      $location.path('/route/5ab');
       $rootScope.$digest();
-      expect($route.current).toBeUndefined();
+      expect($route.current).toBeUndefined();     
     });
   });
 
