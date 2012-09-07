@@ -97,6 +97,16 @@ describe('$route', function() {
     });
   });
 
+  it("should not match a substring of the param", function() {
+    module(function($routeProvider) {
+      $routeProvider.when('/route/:param', {template:'foo.html'}, {param:"int"});
+    });
+    inject(function($route, $routeParams, $location, $rootScope) {
+      $location.path('/some/5ab');
+      $rootScope.$digest();
+      expect($route.current).toBeUndefined();
+    });
+  });
 
   it("should support float constraint shortcut", function() {
     module(function($routeProvider) {

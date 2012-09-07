@@ -411,6 +411,7 @@ function $RouteProvider(){
       }
       regex = regex.replace(new RegExp(":" + param[0] + "([\\W])"), paramRegExp);
     });
+
     return regex;
   }
 }
